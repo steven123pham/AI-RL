@@ -63,7 +63,22 @@ class Environment:
         {'type': 'normal', 'reward': -1, 'occupied_by': ''}
       ]
     ]
-    self.env = [first_level, second_level, third_level]
+    self.environment = [first_level, second_level, third_level]
     
-  def move_agent(self, old_coords, action):
-    self
+  def move_agent(self, old_coords, action, agent):
+    self.environment[old_coords[0]][old_coords[1]][old_coords[2]]['occupied_by'] = ''
+    match action:
+      case 'up':
+        self.environment[old_coords[0] + 1][old_coords[1]][old_coords[2]]['occupied_by'] = agent
+      case 'down':
+        self.environment[old_coords[0] - 1][old_coords[1]][old_coords[2]]['occupied_by'] = agent
+      case 'forward':
+        self.environment[old_coords[0]][old_coords[1] + 1][old_coords[2]]['occupied_by'] = agent
+      case 'backward':
+        self.environment[old_coords[0]][old_coords[1] - 1][old_coords[2]]['occupied_by'] = agent
+      case 'right':
+        self.environment[old_coords[0]][old_coords[1]][old_coords[2] + 1]['occupied_by'] = agent
+      case 'left':
+        self.environment[old_coords[0]][old_coords[1]][old_coords[2] - 1]['occupied_by'] = agent
+        
+  def remove_pickup_block(self, )
