@@ -33,7 +33,7 @@ class State:
       for y in range(3):
         for z in range(3):
           if self.environment[x][y][z]['type'] is 'pickup':
-            self.representation[(x, y, z)] = 10
+            self.representation[(x, y, z)] = self.environment[x][y][z]['block_count']
  
   '''
   Initially, the environment has dropoff cells that are completely empty. Later is when it changes.
@@ -43,6 +43,6 @@ class State:
       for y in range(3):
         for z in range(3):
           if self.environment[x][y][z]['type'] is 'dropoff':
-            self.representation[(x, y, z)] = 0
+            self.representation[(x, y, z)] = self.environment[x][y][z]['block_count']
               
   
